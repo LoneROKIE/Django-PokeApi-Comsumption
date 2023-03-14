@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de pokemon</title>
+</head>
+<body>
+
+    
+    
+
+    {% comment %} detail de los pokes {% endcomment %}
+    <h1>Detalles de pokemon</h1>
+    <h2>Nombre: {{pokemon.name}}</h2>
+    <h2>Numero: {{pokemon.id}}</h2>
+    <h2>Altura: {{pokemon.height}}</h2>
+    <h2>Peso: {{pokemon.weight}}</h2>
+    <h2>Sprite: </h2>
+    <img src="{{pokemon.sprites.front_default}}" alt="" style="height: 250px; width: 250px;">
+    <h2>Tipos: </h2>
+    <ul>
+        {% for type in pokemon.types %}
+            <li>{{type.type.name}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Habilidades: </h2>
+    <ul>
+        {% for ability in pokemon.abilities %}
+            <li>{{ability.ability.name}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Stats: </h2>
+    <ul>
+        {% for stat in pokemon.stats %}
+            <li>{{stat.stat.name}}: {{stat.base_stat}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Movimientos: </h2>
+    <ul>
+        {% for move in pokemon.moves %}
+            <li>{{move.move.name}}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

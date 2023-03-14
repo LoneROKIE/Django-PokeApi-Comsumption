@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemons !!!</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    
+    
+        <div class="container-fluid p-2 bg-primary text-white text-center">
+            <h1>Pokemons</h1>
+        </div>
+        
+        <form method="get" action="{% url 'pokemon' %}">
+            <input type="text" name="q" placeholder="Buscar Pokemon" value="{{query}}">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for poke in pokemon_list %}
+                    <tr>
+                        <td><a href="{% url 'pokemon_detail' poke.name %}">{{poke.name}} </a> </td>
+ 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+
+
+                
+               
+              
+            </div>
+       
+
+           
+
+
+        </div>
+
+
+    
+</body>
+</html>
